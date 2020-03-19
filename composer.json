@@ -1,23 +1,14 @@
 {
-    "name": "digitalsite/estadistica",
-    "description": "Control Estadistico",
+    "name": "digitalsitesaas/estadistica",
+    "description": "Módulo estadística",
+    "type": "project",
     "license": "MIT",
     "authors": [
         {
-            "name": "sitedigital",
-            "email": "info@sitedigital.com"
+            "name": "SiteDigital",
+            "email": "admin@sitedigital.com.co"
         }
     ],
-    "autoload": {
-
-        "psr-4": {
-            "Digitalsite\\Estadistica\\": "src/"
-        }
-
-    },
     "minimum-stability": "dev",
-    "require": {
-
-        "illuminate/support": "~5"
-    }
+    "require": {}
 }
