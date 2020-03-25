@@ -24,7 +24,6 @@ Route::post('gestion/estadistica/crearbloqueo', 'DigitalsiteSaaS\Estadistica\Htt
 Route::get('gestion/estadistica/eliminar/{id}', 'DigitalsiteSaaS\Estadistica\Http\EstadisticaController@eliminar');
 
 
-Route::get('gestion/estadistica/bloqueo', 'DigitalsiteSaaS\Estadistica\Http\EstadisticaController@blocks');
 
 Route::get('/gestion/estadistica/crear-block', function(){
 
@@ -53,79 +52,12 @@ Route::get('informe/estadistica', function(){
 });
 
 
-Route::get('gestion/estadistica', function(){
-
-$min_price = Input::has('min_price') ? Input::get('min_price') : 0;
-       $max_price = Input::has('max_price') ? Input::get('max_price') : 10000000;
-
-	
-
-         $visitas = DB::table('estadistica')
-          ->whereBetween('fecha', array($min_price, $max_price))
-          ->count();
-
-    $nuevousuario = DB::table('estadistica')
-     ->whereBetween('fecha', array($min_price, $max_price))
-     ->select('ip')
-     ->distinct()
-     ->count('ip');
-
-	$conteopagina = DB::table('pages')->count(); 
-
-	$paginas = DB::table('estadistica')
-     ->whereBetween('fecha', array($min_price, $max_price))
-     ->select('pagina')
-     ->selectRaw('count(ip) as sum')
-     ->groupBy('pagina')
-     ->orderBy('sum', 'desc')
-     ->get();
+Route::get('gestion/estadistica', 'DigitalsiteSaaS\Estadistica\Http\EstadisticaController@homeestadistica');
 
 
-   $referidos = DB::table('estadistica')
-     ->whereBetween('fecha', array($min_price, $max_price))
-     ->select('referido')
-     ->selectRaw('count(ip) as sum')
-     ->groupBy('referido')
-     ->orderBy('sum', 'desc')
-     ->get();
-
-       $ciudades = DB::table('estadistica')
-     ->whereBetween('fecha', array($min_price, $max_price))
-     ->select('ciudad')
-     ->selectRaw('count(ip) as sum')
-     ->groupBy('ciudad')
-     ->orderBy('sum', 'desc')
-     ->get();
-
-
-      $idiomas = DB::table('estadistica')
-     ->whereBetween('fecha', array($min_price, $max_price))
-     ->select('idioma')
-     ->selectRaw('count(ip) as sum')
-     ->groupBy('idioma')
-     ->orderBy('sum', 'desc')
-     ->get();
-
-      $meses = DB::table('estadistica')
-     ->whereBetween('fecha', array($min_price, $max_price))
-     ->select('mes')
-     ->selectRaw('count(ip) as sum')
-     ->groupBy('mes')
-      ->orderBy('cp', 'asc')
-     ->get();
-
-      $paises = DB::table('estadistica')
-     ->whereBetween('fecha', array($min_price, $max_price))
-     ->select('pais')
-     ->selectRaw('count(ip) as sum')
-     ->groupBy('pais')
-     ->get();
-
-	return View::make('estadistica::estadisticaweb', compact(['visitas','nuevousuario','conteopagina','paginas','referidos','ciudades','idiomas','meses','paises']));
-});
 
 
 
 });
 
- Route::post('mensajes/estadisticas', 'DigitalsiteSaaS\Pagina\Http\WebController@estadistica');
+ Route::post('/mensajes/estadisticas', 'DigitalsiteSaaS\Pagina\Http\WebController@estadistica');
