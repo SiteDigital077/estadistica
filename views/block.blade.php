@@ -1,9 +1,6 @@
  @extends ('adminsite.layout')
  
 
- 
-
-
   @section('ContenidoSite-01')
 
    <div class="content-header">
