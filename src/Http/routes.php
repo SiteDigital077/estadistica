@@ -60,4 +60,4 @@ Route::get('gestion/estadistica', 'DigitalsiteSaaS\Estadistica\Http\EstadisticaC
 
 });
 
- Route::get('/mensajes/estadisticas', 'DigitalsiteSaaS\Pagina\Http\WebController@estadistica');
+ 
