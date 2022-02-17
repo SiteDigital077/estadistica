@@ -305,6 +305,82 @@
 </div>
 </div>
 
+
+
+<div class="container">
+
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+ <div class="block">
+                            <!-- Responsive Full Title -->
+                            <div class="block-title">
+                                <h2><strong>Fuentes</strong> tráfico</h2>
+                            </div>
+                            <!-- END Responsive Full Title -->
+
+                            <!-- Responsive Full Content -->
+                            
+                            <div class="table-responsive">
+                                <table class="table table-vcenter table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-primary">Fuentes</th>
+                                            <th class="text-primary"># Visitas</th>    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($fuentes as $fuentes)
+                                        <tr>
+                                           <td style="width:280px">{{ $fuentes->utm_source }}</td>
+                                           <td style="width:100px">{{number_format( $fuentes->sum, 0, ",", ".")}}</td>
+                                        </tr>
+                                       @endforeach 
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- END Responsive Full Content -->
+                        </div>
+
+
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+ <div class="block">
+                            <!-- Responsive Full Title -->
+                            <div class="block-title">
+                                <h2><strong>Lenguajes</strong> visitas</h2>
+                            </div>
+                            <!-- END Responsive Full Title -->
+
+                            <!-- Responsive Full Content -->
+                            
+                            <div class="table-responsive">
+                                <table class="table table-vcenter table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-primary">Lenguaje</th>
+                                            <th class="text-primary"># Visitas</th>    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <tr>
+                                           <td style="width:280px">Otro</td>
+                                           <td style="width:100px">5</td>
+                                        </tr>
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- END Responsive Full Content -->
+                        </div>
+
+
+</div>
+</div>
+
+
+
+
   
 <div class="container">
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">

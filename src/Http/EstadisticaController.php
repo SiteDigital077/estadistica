@@ -180,6 +180,15 @@ public function meses(){
      ->orderBy('sum', 'desc')
      ->get();
 
+          $fuentes = Stats::whereBetween('fecha', array($min_price, $max_price))
+     ->select('utm_source')
+     ->where('utm_source','<>','NULL')
+     ->selectRaw('count(ip) as sum')
+     ->groupBy('utm_source')
+     ->orderBy('sum', 'desc')
+     ->get();
+
+
 
       $idiomas = Stats::whereBetween('fecha', array($min_price, $max_price))
      ->select('idioma')
@@ -234,6 +243,14 @@ public function meses(){
      ->orderBy('sum', 'desc')
      ->get();
 
+     $fuentes = \DigitalsiteSaaS\Estadistica\Tenant\Stats::whereBetween('fecha', array($min_price, $max_price))
+      ->select('utm_source')
+     ->where('utm_source','<>','NULL')
+     ->selectRaw('count(ip) as sum')
+     ->groupBy('utm_source')
+     ->orderBy('sum', 'desc')
+     ->get();
+
 
       $idiomas = \DigitalsiteSaaS\Estadistica\Tenant\Stats::whereBetween('fecha', array($min_price, $max_price))
      ->select('idioma')
@@ -257,7 +274,7 @@ public function meses(){
 
  	}
 
-	return View('estadistica::estadisticaweb', compact(['visitas','nuevousuario','conteopagina','paginas','referidos','ciudades','idiomas','meses','paises']));
+	return View('estadistica::estadisticaweb', compact(['visitas','nuevousuario','conteopagina','paginas','referidos','ciudades','idiomas','meses','paises','fuentes']));
 
 
 	}
