@@ -273,9 +273,10 @@ public function meses(){
      ->get();
 
       $ips = \DigitalsiteSaaS\Estadistica\Tenant\Stats::whereBetween('fecha', array($min_price, $max_price))
-     ->select('ip')
+     ->select('ip','utm_source')
      ->selectRaw('count(ip) as sum')
      ->groupBy('ip')
+     ->groupBy('utm_source')
      ->get();
 
  	}

@@ -403,7 +403,7 @@
                                     <tbody>
                                        @foreach($ips as $ips)
                                         <tr>
-                                           <td style="width:280px">{{ $ips->ip }}</td>
+                                           <td style="width:280px">{{ $ips->ip }}/{{ $ips->utm_source }}</td>
                                            <td style="width:100px">{{number_format($ips->sum, 0, ",", ".")}}</td>
                                         </tr>
                                        @endforeach 
