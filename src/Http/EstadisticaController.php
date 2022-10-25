@@ -272,9 +272,15 @@ public function meses(){
      ->groupBy('pais')
      ->get();
 
+      $ips = \DigitalsiteSaaS\Estadistica\Tenant\Stats::whereBetween('fecha', array($min_price, $max_price))
+     ->select('ip')
+     ->selectRaw('count(ip) as sum')
+     ->groupBy('ip')
+     ->get();
+
  	}
 
-	return View('estadistica::estadisticaweb', compact(['visitas','nuevousuario','conteopagina','paginas','referidos','ciudades','idiomas','meses','paises','fuentes']));
+	return View('estadistica::estadisticaweb', compact(['visitas','nuevousuario','conteopagina','paginas','referidos','ciudades','idiomas','meses','paises','fuentes','ips']));
 
 
 	}

@@ -380,6 +380,77 @@
 
 
 
+<div class="container">
+
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+ <div class="block">
+                            <!-- Responsive Full Title -->
+                            <div class="block-title">
+                                <h2><strong>Visitas</strong> por IP</h2>
+                            </div>
+                            <!-- END Responsive Full Title -->
+
+                            <!-- Responsive Full Content -->
+                            
+                            <div class="table-responsive">
+                                <table class="table table-vcenter table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-primary">IPs</th>
+                                            <th class="text-primary"># Visitas</th>    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       @foreach($ips as $ips)
+                                        <tr>
+                                           <td style="width:280px">{{ $ips->ip }}</td>
+                                           <td style="width:100px">{{number_format($ips->sum, 0, ",", ".")}}</td>
+                                        </tr>
+                                       @endforeach 
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- END Responsive Full Content -->
+                        </div>
+
+
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+ <div class="block">
+                            <!-- Responsive Full Title -->
+                            <div class="block-title">
+                                <h2><strong>LenguajesXX</strong> visitas</h2>
+                            </div>
+                            <!-- END Responsive Full Title -->
+
+                            <!-- Responsive Full Content -->
+                            
+                            <div class="table-responsive">
+                                <table class="table table-vcenter table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-primary">Lenguaje</th>
+                                            <th class="text-primary"># Visitas</th>    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                        <tr>
+                                           <td style="width:280px"></td>
+                                           <td style="width:100px"></td>
+                                        </tr>
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- END Responsive Full Content -->
+                        </div>
+
+
+</div>
+</div>
+
 
   
 <div class="container">
