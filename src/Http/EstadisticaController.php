@@ -277,6 +277,7 @@ public function meses(){
      ->selectRaw('count(ip) as sum')
      ->groupBy('ip')
      ->groupBy('utm_source')
+     ->orderBy('sum', 'desc')
      ->get();
 
  	}
