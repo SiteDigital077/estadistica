@@ -3,12 +3,16 @@
  @extends ('adminsite.layout')
 
  @section('cabecera')
-    <script src="/modulo-estadisticas/js/chartkick.js"></script>
+
+
+ <script src="https://cdn.jsdelivr.net/npm/chartkick@5.0.1/dist/chartkick.min.js"></script>
+  <script src="https://www.google.com/jsapi"></script>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
     <!-- <script src="Chart.bundle.js"></script> -->
 
- 
- <script type="text/javascript" src="//www.google.com/jsapi"></script>
+
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
      <script>
       // Chartkick.configure({language: "de"});
@@ -491,6 +495,9 @@
       new Chartkick.GeoChart("geo", [
   @foreach($paises as $paises)
   ["{{ $paises->pais }}",{{$paises->sum}}],
+
+
+  
 @endforeach
   ]);
     </script>
